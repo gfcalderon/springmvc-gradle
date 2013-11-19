@@ -4,3 +4,11 @@
 *.jar
 *.war
 *.ear
+
+# target directory
+build
+
+# gradle & intellij idea stuff
+.gradle
+.idea
+*.iml
