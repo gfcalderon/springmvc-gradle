@@ -1,0 +1,26 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+ext {
+	sourceEncoding = "UTF-8"
+	servletVersion = "2.5"
+	springframeworkVersion = "3.2.5.RELEASE"
+	jspVersion = "2.1"
+	jstlVersion = "1.2"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	providedCompile "javax.servlet:servlet-api:$servletVersion"
+	providedCompile "javax.servlet.jsp:jsp-api:$jspVersion"
+	providedCompile "javax.servlet.jsp.jstl:jstl-api:$jstlVersion"
+
+    compile "org.springframework:spring-web:$springframeworkVersion"
+	compile "org.springframework:spring-webmvc:$springframeworkVersion"
+
+    testCompile "junit:junit:4.11"
+    testCompile "org.springframework:spring-test:$springframeworkVersion"
+}
