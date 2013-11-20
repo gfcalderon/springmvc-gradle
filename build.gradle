@@ -24,3 +24,6 @@ dependencies {
     testCompile "junit:junit:4.11"
     testCompile "org.springframework:spring-test:$springframeworkVersion"
 }
+
+/* Change context path (base url). Otherwise defaults to name of project */
+jettyRunWar.contextPath = 'springapp'
