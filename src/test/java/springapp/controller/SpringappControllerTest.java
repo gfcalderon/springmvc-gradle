@@ -1,6 +1,7 @@
 package springapp.controller;
 
 import com.springapp.controller.SpringappController;
+import com.springapp.spring.config.ApplicationConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,12 +17,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Main SpringApp controller test
  * User: Gerardo Fernández
- * Date: 15/11/13
+ * Date: 15/11/2013
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration( { "file:src/main/webapp/WEB-INF/spring/application-context.xml",
-                         "file:src/main/webapp/WEB-INF/spring/servlet-context.xml" } )
+@ContextConfiguration( classes = { ApplicationConfig.class })
 public class SpringappControllerTest {
 
     private MockMvc mockMVC;

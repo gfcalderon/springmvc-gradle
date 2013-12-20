@@ -1,7 +1,8 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
@@ -20,4 +21,20 @@ dependencies {
 }
 
 /* Change context path (base url). Otherwise defaults to name of project */
-jettyRunWar.contextPath = 'springapp'
+jettyRunWar {
+    contextPath = 'springapp'
+    stopPort = 8090
+    stopKey = 'foo'
+}
+
+jettyRun {
+    contextPath = 'springapp'
+    stopPort = 8090
+    stopKey = 'foo'
+}
+
+jettyStop {
+    stopPort = 8090
+    stopKey = 'foo'
+}
+

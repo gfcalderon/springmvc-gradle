@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Main SpringApp controller
  * User: Gerardo Fernández
- * Date: 15/11/13
+ * Date: 15/11/2013
  */
 @Controller
 public class SpringappController {
 
-    @RequestMapping( value = { "", "/" } )
+    @RequestMapping( { "", "/" } )
     public String loadHomePage( Model model ) {
         model.addAttribute( "name", "SpringApp" );
         return "home";
