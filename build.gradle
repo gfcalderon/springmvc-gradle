@@ -12,7 +12,7 @@ dependencies {
     compile             "org.springframework:spring-web:$springframeworkVersion",
                         "org.springframework:spring-webmvc:$springframeworkVersion",
                         "org.thymeleaf:thymeleaf:$thymeleafVersion",
-                        "org.thymeleaf:thymeleaf-spring3:$thymeleafVersion"
+                        "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion"
 
     testCompile         "junit:junit:4.11",
                         "org.springframework:spring-test:$springframeworkVersion",
