@@ -9,15 +9,14 @@ repositories {
 }
 
 dependencies {
-    providedCompile     "javax.servlet:servlet-api:$servletVersion"
-
     compile             "org.springframework:spring-web:$springframeworkVersion",
                         "org.springframework:spring-webmvc:$springframeworkVersion",
                         "org.thymeleaf:thymeleaf:$thymeleafVersion",
                         "org.thymeleaf:thymeleaf-spring3:$thymeleafVersion"
 
     testCompile         "junit:junit:4.11",
-                        "org.springframework:spring-test:$springframeworkVersion"
+                        "org.springframework:spring-test:$springframeworkVersion",
+                        "org.apache.geronimo.specs:geronimo-servlet_3.0_spec:1.0"
 }
 
 /* Change context path (base url). Otherwise defaults to name of project */
@@ -37,4 +36,3 @@ jettyStop {
     stopPort = 8090
     stopKey = 'foo'
 }
-
