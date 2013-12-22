@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,27 +21,21 @@ public class SpringappController {
     @Autowired
     private Person person;
 
-    @RequestMapping( value = "/", method = RequestMethod.GET )
-    public String start( Model model ) {
+    @RequestMapping( value = { "", "/", "/home" }, method = RequestMethod.GET )
+    public String welcome( Model model ) {
         if ( person.getName() == null || person.getName().isEmpty() ) {
             person.setName( "Springapp" );
         }
-
-        return "redirect:/home";
-    }
-
-    @RequestMapping( value = "/home" )
-    public String welcome( Model model ) {
-        model.addAttribute( "name", this.person.getName() );
+        model.addAttribute( "name", person.getName() );
         model.addAttribute( "person", new Person() );
 
         return "home";
     }
 
     @RequestMapping( value = "/identify", method = RequestMethod.POST )
-    public String configure( final Person person, final ModelMap model, final BindingResult result ) {
+    public String configure(@ModelAttribute( "person" ) final Person formPerson, final ModelMap model, final BindingResult result ) {
         if ( !result.hasErrors() ) {
-            this.person.setName( person.getName() );
+            person.setName( formPerson.getName() );
         }
 
         model.clear();
