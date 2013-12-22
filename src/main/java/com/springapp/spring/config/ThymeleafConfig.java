@@ -20,6 +20,7 @@ public class ThymeleafConfig {
         resolver.setPrefix( "/WEB-INF/view/" );
         resolver.setSuffix( ".html" );
         resolver.setTemplateMode( "HTML5" );
+        resolver.setCacheable( true );
         return resolver;
     }
 

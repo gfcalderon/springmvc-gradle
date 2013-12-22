@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.mvc.WebContentInterceptor;
 
 import java.util.Locale;
 
@@ -35,7 +36,19 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors( InterceptorRegistry registry ) {
+        registry.addInterceptor( webContentInterceptor() );
         registry.addInterceptor( localeChangeInterceptor() );
+    }
+
+    @Bean
+    @Qualifier( "webContentInterceptor" )
+    public WebContentInterceptor webContentInterceptor() {
+        WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
+        webContentInterceptor.setCacheSeconds( 0 );
+        webContentInterceptor.setUseExpiresHeader( true );
+        webContentInterceptor.setUseCacheControlHeader( true );
+        webContentInterceptor.setUseCacheControlNoStore( true );
+        return webContentInterceptor;
     }
 
     @Bean
