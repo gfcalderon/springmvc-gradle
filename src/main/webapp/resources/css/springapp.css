@@ -27,17 +27,33 @@ html, body {
 #wrap > .container {
     padding: 60px 15px 0;
 }
+
 .container .text-muted {
     margin: 20px 0;
 }
-
 
 #footer > .container {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-
 code {
     font-size: 80%;
+}
+
+.error-404 {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.error-404 h3 {
+    padding: 0 35px;
+}
+
+.error-404 img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -285px;
+    margin-top: -190px;
 }

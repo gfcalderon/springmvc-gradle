@@ -4,7 +4,6 @@ import com.springapp.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +23,7 @@ public class SpringappController {
     @RequestMapping( value = { "", "/", "/home" }, method = RequestMethod.GET )
     public String welcome( Model model ) {
         if ( person.getName() == null || person.getName().isEmpty() ) {
-            person.setName( "Springapp" );
+            person.setName( "SpringApp" );
         }
         model.addAttribute( "name", person.getName() );
         model.addAttribute( "person", new Person() );
@@ -33,12 +32,18 @@ public class SpringappController {
     }
 
     @RequestMapping( value = "/identify", method = RequestMethod.POST )
-    public String configure(@ModelAttribute( "person" ) final Person formPerson, final BindingResult result ) {
+    public String configure(@ModelAttribute( "person" ) final Person formPerson, final BindingResult result) {
         if ( !result.hasErrors() ) {
             person.setName( formPerson.getName() );
         }
 
         return "redirect:/home";
     }
+
+    @RequestMapping( value = "/404", method = RequestMethod.GET )
+    public String pageNotFound() {
+        return "404";
+    }
+
 
 }
