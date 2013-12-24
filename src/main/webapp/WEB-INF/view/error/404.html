@@ -7,9 +7,9 @@
         <title>Sample Spring Application</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}" />
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" />
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}" />
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}" />
     </head>
 
     <body class="error-404">
@@ -32,8 +32,8 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span th:text="#{common.navbar.language}">Idioma</span> <b class="caret" /></a>
                                 <ul class="dropdown-menu">
-                                    <li th:classappend="${(#locale.language.contains('es') ? 'active' : '')}"><a href="?lang=es"><img src="../../resources/img/flag_es.png" th:src="@{/resources/img/flag_es.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.spanish}">Espa&ntilde;ol</span></a></li>
-                                    <li th:classappend="${(#locale.language.contains('en') ? 'active' : '')}"><a href="?lang=en"><img src="../../resources/img/flag_en.png" th:src="@{/resources/img/flag_en.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.english}">Ingl&eacute;s</span></a></li>
+                                    <li th:classappend="${(#locale.language.contains('es') ? 'active' : '')}"><a href="?lang=es"><img src="../../../resources/img/flag_es.png" th:src="@{/resources/img/flag_es.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.spanish}">Espa&ntilde;ol</span></a></li>
+                                    <li th:classappend="${(#locale.language.contains('en') ? 'active' : '')}"><a href="?lang=en"><img src="../../../resources/img/flag_en.png" th:src="@{/resources/img/flag_en.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.english}">Ingl&eacute;s</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -47,7 +47,7 @@
                     <h3 class="text-center" th:text="#{error.404.description}">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</h3>
                 </div>
                 <div class="col-lg-2" />
-                <img src="../../resources/img/404.jpg" th:src="@{/resources/img/404.jpg}" />
+                <img src="../../../resources/img/404.jpg" th:src="@{/resources/img/404.jpg}" />
             </div>
 
         </div>
@@ -59,7 +59,7 @@
         </div>
 
         <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/javascript" src="../../resources/js/jquery-2.0.3.min.js" th:src="@{/resources/js/jquery-2.0.3.min.js}"></script>
-        <script type="text/javascript" src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" src="../../../resources/js/jquery-2.0.3.min.js" th:src="@{/resources/js/jquery-2.0.3.min.js}"></script>
+        <script type="text/javascript" src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
     </body>
 </html>

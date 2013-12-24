@@ -42,7 +42,7 @@ public class SpringappController {
 
     @RequestMapping( value = "/404", method = RequestMethod.GET )
     public String pageNotFound() {
-        return "404";
+        return "error/404";
     }
 
 
