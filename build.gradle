@@ -11,8 +11,11 @@ repositories {
 dependencies {
     compile             "org.springframework:spring-web:$springframeworkVersion",
                         "org.springframework:spring-webmvc:$springframeworkVersion",
+                        "org.springframework.security:spring-security-web:$springSecurityframeworkVersion",
+                        "org.springframework.security:spring-security-config:$springSecurityframeworkVersion",
                         "org.thymeleaf:thymeleaf:$thymeleafVersion",
-                        "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion"
+                        "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion",
+                        "org.thymeleaf.extras:thymeleaf-extras-springsecurity3:$thymeleafSpringSecurity3Version"
 
     testCompile         "junit:junit:4.11",
                         "org.springframework:spring-test:$springframeworkVersion",

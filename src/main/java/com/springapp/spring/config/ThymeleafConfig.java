@@ -2,6 +2,7 @@ package com.springapp.spring.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -28,6 +29,7 @@ public class ThymeleafConfig {
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver( templateResolver() );
+        engine.addDialect( new SpringSecurityDialect() );
         return engine;
     }
 

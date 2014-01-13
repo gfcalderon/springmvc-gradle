@@ -2,6 +2,8 @@ package com.springapp.controller;
 
 import com.springapp.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,10 +22,16 @@ public class SpringappController {
     @Autowired
     private Person person;
 
+    @RequestMapping( value = "/login", method = { RequestMethod.GET, RequestMethod.POST } )
+    public String login() {
+        return "login";
+    }
+
     @RequestMapping( value = { "", "/", "/home" }, method = RequestMethod.GET )
     public String welcome( Model model ) {
         if ( person.getName() == null || person.getName().isEmpty() ) {
-            person.setName( "SpringApp" );
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            person.setName( auth.getName() ); //get logged in username
         }
         model.addAttribute( "name", person.getName() );
         model.addAttribute( "person", new Person() );

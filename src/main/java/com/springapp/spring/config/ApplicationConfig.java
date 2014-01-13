@@ -1,10 +1,7 @@
 package com.springapp.spring.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
@@ -27,6 +24,7 @@ import java.util.Locale;
 @ComponentScan( basePackages = { "com.springapp" } )
 @EnableWebMvc
 @Import( { ThymeleafConfig.class } )
+@ImportResource( "classpath:spring/security-context.xml" )
 public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
     @Override

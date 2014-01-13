@@ -1,0 +1,66 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Sample Spring Application</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" />
+        <link type="text/css" rel="stylesheet" href="../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}" />
+        <link type="text/css" rel="stylesheet" href="../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}" />
+    </head>
+
+    <body>
+        <div id="wrap">
+
+            <div th:include="template/navbar :: navbar('home')"></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4">
+                        <div class="well">
+                            <form action="/login" th:action="@{/j_spring_security_check}" method="post" accept-charset="UTF-8" role="form">
+                                <h2 th:text="#{login.form.title}">Acceda a Springapp ahora</h2>
+                                <div th:if="${param.error}" class="alert alert-danger">
+                                    <a class="close" data-dismiss="alert" href="#">x</a>
+                                    <span th:text="#{login.form.error}">Usuario y/o contraseña incorrectos</span>
+                                </div>
+                                <div th:if="${param.noAuthenticated}" class="alert alert-danger">
+                                    <a class="close" data-dismiss="alert" href="#">x</a>
+                                    <span th:text="#{login.form.expired}">Su sesión ha expirado</span>
+                                </div>
+                                <div class="form-group">
+                                    <input id="j_username" name="j_username" type="text" class="form-control" th:placeholder="#{login.form.placeholder.user}" placeholder="Usuario" autofocus="autofocus"/>
+                                </div>
+                                <div class="form-group">
+                                    <input name="j_password" id="j_password" type="password" class="form-control" th:placeholder="#{login.form.placeholder.password}" placeholder="Contraseña"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" th:value="#{login.form.submit}" value="Acceder" class="btn btn-primary btn-large btn-block" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div th:include="template/footer :: footer"></div>
+
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="../../resources/js/jquery-2.0.3.min.js" th:src="@{/resources/js/jquery-2.0.3.min.js}"></script>
+        <script type="text/javascript" src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:inline="javascript">
+
+            $( document ).ready( function() {
+                $( '#name' ).keyup( function() {
+                    $( '#submit').prop( "disabled", !this.value.length );
+                });
+            });
+
+        </script>
+    </body>
+</html>
