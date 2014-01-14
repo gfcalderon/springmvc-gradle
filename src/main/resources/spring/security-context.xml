@@ -17,7 +17,9 @@
                              default-target-url="/home"
                              authentication-failure-url="/login?error=true" />
 
-        <security:logout logout-success-url="/login" />
+        <security:logout logout-url="/logout"
+                         logout-success-url="/login"
+                         invalidate-session="true" />
 
     </security:http>
 

@@ -27,6 +27,12 @@
                                     <li th:classappend="${(#locale.language.contains('en') ? 'active' : '')}"><a href="?lang=en"><img src="../../../resources/img/flag_en.png" th:src="@{/resources/img/flag_en.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.english}">Ingl&eacute;s</span></a></li>
                                 </ul>
                             </li>
+                            <li id="user" class="dropdown" sec:authorize="isAuthenticated()">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span th:text="${name}">Usuario</span> <b class="caret" /></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="logout" th:href="@{/logout}"><i class="icon-power-off icon-left"></i> <span th:text="#{common.navbar.logoff}">Desconectar</span></a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

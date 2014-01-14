@@ -31,7 +31,7 @@ public class SpringappController {
     public String welcome( Model model ) {
         if ( person.getName() == null || person.getName().isEmpty() ) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            person.setName( auth.getName() ); //get logged in username
+            person.setName( auth.getName().equals( "admin" ) ? "Administrador" : auth.getName() ); //get logged in username
         }
         model.addAttribute( "name", person.getName() );
         model.addAttribute( "person", new Person() );
