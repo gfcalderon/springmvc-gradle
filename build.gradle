@@ -9,6 +9,8 @@ repositories {
 }
 
 dependencies {
+    providedCompile     "javax.servlet:javax.servlet-api:$servletAPIVersion"
+
     compile             "org.springframework:spring-web:$springframeworkVersion",
                         "org.springframework:spring-webmvc:$springframeworkVersion",
                         "org.springframework.security:spring-security-web:$springSecurityframeworkVersion",
@@ -17,9 +19,11 @@ dependencies {
                         "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion",
                         "org.thymeleaf.extras:thymeleaf-extras-springsecurity3:$thymeleafSpringSecurity3Version"
 
-    testCompile         "junit:junit:4.11",
-                        "org.springframework:spring-test:$springframeworkVersion",
-                        "org.apache.geronimo.specs:geronimo-servlet_3.0_spec:1.0"
+    testCompile         ("junit:junit:$junitVersion") { exclude module: 'hamcrest-core' }
+
+    testCompile         "org.mockito:mockito-core:$mockitoVersion",
+                        "org.hamcrest:hamcrest-all:$hamcrestVersion",
+                        "org.springframework:spring-test:$springframeworkVersion"
 }
 
 /* Change context path (base url). Otherwise defaults to name of project */

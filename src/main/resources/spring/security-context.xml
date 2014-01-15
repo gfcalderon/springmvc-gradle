@@ -7,6 +7,10 @@
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <bean id="springappAuthenticationSuccessHandler" class="com.springapp.authentication.SpringappAuthenticationSuccessHandler">
+        <constructor-arg name="defaultTargetUrl" value="/home" />
+    </bean>
+
     <security:http use-expressions="true">
 
         <security:intercept-url pattern="/resources/**" access="permitAll()" />
@@ -14,8 +18,8 @@
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
 
         <security:form-login login-page="/login"
-                             default-target-url="/home"
-                             authentication-failure-url="/login?error=true" />
+                             authentication-failure-url="/login?error=true"
+                             authentication-success-handler-ref="springappAuthenticationSuccessHandler"/>
 
         <security:logout logout-url="/logout"
                          logout-success-url="/login"

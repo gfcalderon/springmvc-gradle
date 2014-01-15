@@ -19,12 +19,12 @@
 
             <div class="container">
                 <div class="page-header">
-                    <h1 th:text="|#{home.welcome} ${name}!|">Hello World</h1>
+                    <h1 th:text="|#{home.welcome} ${person.name}!|">Hello World</h1>
                 </div>
 
                 <div>
                     <div class="well well-lg col-lg-6">
-                        <form role="form" class="form-inline" method="post" action="#" th:action="@{/identify}" th:object="${person}">
+                        <form role="form" class="form-inline" method="post" action="#" th:action="@{/identify}" th:object="${newPerson}">
                             <div class="input-group">
                                 <label class="sr-only" th:for="${#ids.next('name')}" th:text="#{form.label.name}">Nombre</label>
                                 <input class="form-control" type="text" th:field="*{name}" th:placeholder="#{form.placeholder.name}" />
