@@ -24,8 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure( HttpSecurity http ) throws Exception {
         http.authorizeRequests()
                 .antMatchers( "/resources/**" ).permitAll()
-                .antMatchers( "/**" ).authenticated();
-                //.anyRequest().authenticated();
+                .antMatchers( "/login*" ).anonymous()
+                .anyRequest().authenticated();
 
         http.formLogin()
                 .successHandler( springappAuthenticationSuccessHandler() )
@@ -40,7 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession( true )
                 .permitAll();
     }
-
 
     @Autowired
     public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception {
