@@ -3,7 +3,6 @@ package com.springapp.spring.config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -24,7 +23,6 @@ import java.util.Locale;
 @ComponentScan( basePackages = { "com.springapp" } )
 @EnableWebMvc
 @Import( { ThymeleafConfig.class } )
-@ImportResource( "classpath:spring/security-context.xml" )
 public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -34,8 +32,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors( InterceptorRegistry registry ) {
-        registry.addInterceptor( webContentInterceptor() );
         registry.addInterceptor( localeChangeInterceptor() );
+        registry.addInterceptor( webContentInterceptor() );
     }
 
     @Bean

@@ -17,7 +17,6 @@ import static org.hamcrest.Matchers.hasProperty;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
@@ -57,7 +56,7 @@ public class SpringappControllerTest {
         when( personMock.getName() ).thenReturn( "Administrador" );
 
         mockMVC.perform( post( "/identify" ).param( "name", "Foo" ) )
-                .andExpect( status().isMovedTemporarily() )
+                .andExpect( status().isFound() )
                 .andExpect( redirectedUrl( "/home" ) )
                 .andExpect( model().attribute( "person", hasProperty( "name", equalTo( "Foo" ) ) ) );
     }

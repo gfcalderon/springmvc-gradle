@@ -1,6 +1,7 @@
 package springapp.controller;
 
 import com.springapp.spring.config.ApplicationConfig;
+import com.springapp.spring.config.SecurityConfig;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,8 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Date: 15/11/2013
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration ( classes = { SecurityConfig.class, ApplicationConfig.class } )
 @WebAppConfiguration
-@ContextConfiguration ( classes = { ApplicationConfig.class } )
 //@FixMethodOrder( MethodSorters.NAME_ASCENDING )
 public class SpringappControllerIntegrationTest {
 
@@ -39,7 +40,6 @@ public class SpringappControllerIntegrationTest {
 
     @Autowired
     private WebApplicationContext context;
-
 
     private MockMvc mockMVC;
 
@@ -50,20 +50,20 @@ public class SpringappControllerIntegrationTest {
 
     @Test
     public void testBadLogin() throws Exception {
-        mockMVC.perform( post( "/j_spring_security_check" )
-                         .param( "j_username", "foo" )
-                         .param( "j_password", "bar" ) )
-                .andExpect( status().isMovedTemporarily() )
+        mockMVC.perform( post( "/login" )
+                .param( "username", "foo" )
+                .param( "password", "bar" ) )
+                .andExpect( status().isFound() )
                 .andExpect( redirectedUrl( "/login?error=true" ) );
     }
 
     @Test
     public void testLogin() throws Exception {
-        mockMVC.perform( post( "/j_spring_security_check" )
-                         .param( "j_username", "admin" )
-                         .param( "j_password", "admin" ) )
-                .andExpect( status().isMovedTemporarily() )
-                .andExpect( redirectedUrl( "/home" ));
+        mockMVC.perform( post( "/login" )
+                         .param( "username", "admin" )
+                         .param( "password", "admin" ) )
+                .andExpect( status().isFound() )
+                .andExpect( redirectedUrl( "/home" ) );
    }
 
     @Test
@@ -84,8 +84,8 @@ public class SpringappControllerIntegrationTest {
 
         Assert.assertNotNull( session );
 
-        mockMVC.perform( post( "/identify", new Object[0] ).param( "name", "Foo" ).session( ( MockHttpSession) session ) )
-                .andExpect( status().isMovedTemporarily() )
+        mockMVC.perform( post( "/identify" ).param( "name", "Foo" ).session( ( MockHttpSession) session ) )
+                .andExpect( status().isFound() )
                 .andExpect( redirectedUrl( "/home" ) );
 
         mockMVC.perform( get( "/home" ).session( ( MockHttpSession) session ) )
@@ -95,10 +95,10 @@ public class SpringappControllerIntegrationTest {
     }
 
     private HttpSession login() throws Exception {
-        return mockMVC.perform( post( "/j_spring_security_check" )
-                                .param( "j_username", "admin" )
-                                .param( "j_password", "admin" ) )
-                       .andExpect( status().isMovedTemporarily() )
+        return mockMVC.perform( post( "/login" )
+                                .param( "username", "admin" )
+                                .param( "password", "admin" ) )
+                       .andExpect( status().isFound() )
                        .andExpect( redirectedUrl( "/home" ) )
                        .andReturn()
                        .getRequest()

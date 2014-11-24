@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
                         <div class="well">
-                            <form action="/login" th:action="@{/j_spring_security_check}" method="post" accept-charset="UTF-8" role="form">
+                            <form action="/login" th:action="@{/login}" method="post" accept-charset="UTF-8" role="form">
                                 <h3 th:text="#{login.form.title}">Acceda a Springapp ahora</h3>
                                 <div th:if="${param.error}" class="alert alert-danger">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -32,10 +32,10 @@
                                     <span th:text="#{login.form.expired}">Su sesión ha expirado</span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="j_username" name="j_username" type="text" class="form-control" th:placeholder="#{login.form.placeholder.user}" placeholder="Usuario" autofocus="autofocus"/>
+                                    <input id="username" name="username" type="text" class="form-control" th:placeholder="#{login.form.placeholder.user}" placeholder="Usuario" autofocus="autofocus"/>
                                 </div>
                                 <div class="form-group">
-                                    <input name="j_password" id="j_password" type="password" class="form-control" th:placeholder="#{login.form.placeholder.password}" placeholder="Contraseña"/>
+                                    <input name="password" id="password" type="password" class="form-control" th:placeholder="#{login.form.placeholder.password}" placeholder="Contraseña"/>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" th:value="#{login.form.submit}" value="Acceder" class="btn btn-primary btn-large btn-block" />
