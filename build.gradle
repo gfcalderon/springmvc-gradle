@@ -5,7 +5,7 @@ sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -17,12 +17,13 @@ dependencies {
                         "org.springframework.security:spring-security-config:$springSecurityframeworkVersion",
                         "org.thymeleaf:thymeleaf:$thymeleafVersion",
                         "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion",
-                        "org.thymeleaf.extras:thymeleaf-extras-springsecurity3:$thymeleafSpringSecurity3Version"
+                        "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeleafSpringSecurity4Version"
 
     testCompile         ("junit:junit:$junitVersion") { exclude module: 'hamcrest-core' }
 
     testCompile         "org.mockito:mockito-core:$mockitoVersion",
-                        "org.hamcrest:hamcrest-all:$hamcrestVersion",
+                        "org.hamcrest:hamcrest-core:$hamcrestVersion",
+                        "org.hamcrest:hamcrest-library:$hamcrestVersion",
                         "org.springframework:spring-test:$springframeworkVersion"
 }
 

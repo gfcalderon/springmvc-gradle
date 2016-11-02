@@ -15,7 +15,7 @@
     <body>
         <div id="wrap">
 
-            <div th:include="template/navbar :: navbar('home')"></div>
+            <nav th:replace="template/navbar :: navbar('home')"></nav>
 
             <div class="container">
                 <div class="row">
@@ -48,7 +48,7 @@
 
         </div>
 
-        <div th:include="template/footer :: footer"></div>
+        <footer th:replace="template/footer :: footer"></footer>
 
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/javascript" src="../../resources/js/jquery-2.0.3.min.js" th:src="@{/resources/js/jquery-2.0.3.min.js}"></script>
