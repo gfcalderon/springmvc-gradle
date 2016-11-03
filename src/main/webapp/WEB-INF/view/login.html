@@ -1,15 +1,14 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <title>Sample Spring Application</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}">
+        <link type="text/css" rel="stylesheet" href="../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}">
+        <link type="text/css" rel="stylesheet" href="../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}">
     </head>
 
     <body>
@@ -19,28 +18,30 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-lg-offset-4">
-                        <div class="well">
-                            <form action="/login" th:action="@{/login}" method="post" accept-charset="UTF-8" role="form">
-                                <h3 th:text="#{login.form.title}">Acceda a Springapp ahora</h3>
-                                <div th:if="${param.error}" class="alert alert-danger">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <span th:text="#{login.form.error}">Usuario o contraseña incorrectos</span>
-                                </div>
-                                <div th:if="${param.noAuthenticated}" class="alert alert-danger">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <span th:text="#{login.form.expired}">Su sesión ha expirado</span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="username" name="username" type="text" class="form-control" th:placeholder="#{login.form.placeholder.user}" placeholder="Usuario" autofocus="autofocus"/>
-                                </div>
-                                <div class="form-group">
-                                    <input name="password" id="password" type="password" class="form-control" th:placeholder="#{login.form.placeholder.password}" placeholder="Contraseña"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" th:value="#{login.form.submit}" value="Acceder" class="btn btn-primary btn-large btn-block" />
-                                </div>
-                            </form>
+                    <div class="absolute-center is-responsive">
+                        <div class="col-lg-12">
+                            <div class="well">
+                                <form action="/login" th:action="@{/login}" method="post" accept-charset="UTF-8" role="form">
+                                    <h3 th:text="#{login.form.title}">Acceda a Springapp ahora</h3>
+                                    <div th:if="${param.error}" class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <span th:text="#{login.form.error}">Usuario o contraseña incorrectos</span>
+                                    </div>
+                                    <div th:if="${param.noAuthenticated}" class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <span th:text="#{login.form.expired}">Su sesión ha expirado</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="username" name="username" type="text" class="form-control" th:placeholder="#{login.form.placeholder.user}" placeholder="Usuario" autofocus="autofocus">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="password" id="password" type="password" class="form-control" th:placeholder="#{login.form.placeholder.password}" placeholder="Contraseña">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" th:value="#{login.form.submit}" value="Acceder" class="btn btn-primary btn-large btn-block">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
