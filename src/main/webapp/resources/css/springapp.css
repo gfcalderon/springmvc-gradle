@@ -57,3 +57,17 @@ code {
     margin-left: -285px;
     margin-top: -190px;
 }
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.absolute-center.is-responsive {
+    width: 50%;
+    height: 50%;
+    min-width: 435px;
+    max-width: 470px;
+    padding: 40px;
+}

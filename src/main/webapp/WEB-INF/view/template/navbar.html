@@ -1,7 +1,6 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <body>
 
@@ -20,14 +19,14 @@
                     <ul class="nav navbar-nav">
                         <li id="home" th:classappend="${activePage.equals('home') ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
                         <li id="language" class="dropdown" th:classappend="${activePage.equals('language') ? 'active' : ''}">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span th:text="#{common.navbar.language}">Idioma</span> <b class="caret" /></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span th:text="#{common.navbar.language}">Idioma</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li th:classappend="${(#locale.language.contains('es') ? 'active' : '')}"><a href="?lang=es"><img src="../../../resources/img/flag_es.png" th:src="@{/resources/img/flag_es.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.spanish}">Espa&ntilde;ol</span></a></li>
-                                <li th:classappend="${(#locale.language.contains('en') ? 'active' : '')}"><a href="?lang=en"><img src="../../../resources/img/flag_en.png" th:src="@{/resources/img/flag_en.png}" />&nbsp;&nbsp;<span th:text="#{common.navbar.language.english}">Ingl&eacute;s</span></a></li>
+                                <li th:classappend="${(#locale.language.contains('es') ? 'active' : '')}"><a href="?lang=es"><img src="../../../resources/img/flag_es.png" th:src="@{/resources/img/flag_es.png}">&nbsp;&nbsp;<span th:text="#{common.navbar.language.spanish}">Espa&ntilde;ol</span></a></li>
+                                <li th:classappend="${(#locale.language.contains('en') ? 'active' : '')}"><a href="?lang=en"><img src="../../../resources/img/flag_en.png" th:src="@{/resources/img/flag_en.png}">&nbsp;&nbsp;<span th:text="#{common.navbar.language.english}">Ingl&eacute;s</span></a></li>
                             </ul>
                         </li>
                         <li id="user" class="dropdown" sec:authorize="isAuthenticated()">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span th:text="${name}">Usuario</span> <b class="caret" /></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span th:text="${name}">Usuario</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="logout" th:href="@{/logout}"><i class="icon-power-off icon-left"></i> <span th:text="#{common.navbar.logoff}">Desconectar</span></a></li>
                             </ul>
