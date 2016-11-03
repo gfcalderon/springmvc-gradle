@@ -53,8 +53,6 @@ public class SpringappControllerTest {
 
     @Test
     public void testIdentify() throws Exception {
-        when( personMock.getName() ).thenReturn( "Administrador" );
-
         mockMVC.perform( post( "/identify" ).param( "name", "Foo" ) )
                 .andExpect( status().isFound() )
                 .andExpect( redirectedUrl( "/home" ) )

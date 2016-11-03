@@ -1,8 +1,8 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+//sourceCompatibility = JavaVersion.VERSION_1_7
+//targetCompatibility = JavaVersion.VERSION_1_7
 
 repositories {
     jcenter()
@@ -24,7 +24,8 @@ dependencies {
     testCompile         "org.mockito:mockito-core:$mockitoVersion",
                         "org.hamcrest:hamcrest-core:$hamcrestVersion",
                         "org.hamcrest:hamcrest-library:$hamcrestVersion",
-                        "org.springframework:spring-test:$springframeworkVersion"
+                        "org.springframework:spring-test:$springframeworkVersion",
+                        "org.springframework.security:spring-security-test:$springSecurityframeworkVersion"
 }
 
 /* Change context path (base url). Otherwise defaults to name of project */

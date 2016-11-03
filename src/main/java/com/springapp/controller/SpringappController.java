@@ -34,7 +34,7 @@ public class SpringappController {
     }
 
     @RequestMapping( value = "/identify", method = RequestMethod.POST )
-    public String configure(@ModelAttribute( "person" ) final Person formPerson, final BindingResult result) {
+    public String configure( @ModelAttribute( "person" ) final Person formPerson, final BindingResult result ) {
         if ( !result.hasErrors() ) {
             person.setName( formPerson.getName() );
         }
