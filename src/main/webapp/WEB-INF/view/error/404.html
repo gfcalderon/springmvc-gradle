@@ -1,34 +1,33 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-3.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <title>Sample Spring Application</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link type="text/css" rel="stylesheet" href="../../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}" />
-        <link type="text/css" rel="stylesheet" href="../../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}">
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/font-awesome.min.css" th:href="@{/resources/css/font-awesome.min.css}">
+        <link type="text/css" rel="stylesheet" href="../../../resources/css/springapp.css" th:href="@{/resources/css/springapp.css}">
     </head>
 
     <body class="error-404">
         <div id="wrap">
 
-            <div th:include="template/navbar :: navbar( '' )"></div>
+            <nav th:replace="template/navbar :: navbar('')"></nav>
 
             <div class="container error-404">
                 <div class="col-lg-offset-2 col-lg-8">
                     <h1 class="text-center" th:text="#{error.404.title}">Error 404</h1>
                     <h3 class="text-center" th:text="#{error.404.description}">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</h3>
                 </div>
-                <div class="col-lg-2" />
-                <img src="../../../resources/img/404.jpg" th:src="@{/resources/img/404.jpg}" />
+                <div class="col-lg-2"></div>
+                <img src="../../../resources/img/404.jpg" th:src="@{/resources/img/404.jpg}">
             </div>
 
         </div>
 
-        <div th:include="template/footer :: footer"></div>
+        <footer th:replace="template/footer :: footer"></footer>
 
         <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/javascript" src="../../../resources/js/jquery-2.0.3.min.js" th:src="@{/resources/js/jquery-2.0.3.min.js}"></script>

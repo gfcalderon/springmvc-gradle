@@ -3,6 +3,7 @@ package com.springapp.spring.config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,7 +21,7 @@ import java.util.Locale;
  * Date: 20/12/2013
  */
 @Configuration
-@ComponentScan( basePackages = { "com.springapp" } )
+@ComponentScan( basePackages = "com.springapp" )
 @EnableWebMvc
 @Import( { ThymeleafConfig.class } )
 public class ApplicationConfig extends WebMvcConfigurerAdapter {
@@ -41,9 +42,6 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
     public WebContentInterceptor webContentInterceptor() {
         WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
         webContentInterceptor.setCacheSeconds( 0 );
-        webContentInterceptor.setUseExpiresHeader( true );
-        webContentInterceptor.setUseCacheControlHeader( true );
-        webContentInterceptor.setUseCacheControlNoStore( true );
         return webContentInterceptor;
     }
 

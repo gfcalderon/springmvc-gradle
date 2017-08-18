@@ -1,8 +1,5 @@
 apply plugin: 'war'
-apply plugin: 'jetty'
-
-//sourceCompatibility = JavaVersion.VERSION_1_7
-//targetCompatibility = JavaVersion.VERSION_1_7
+apply plugin: 'org.akhikhl.gretty'
 
 repositories {
     jcenter()
@@ -28,20 +25,19 @@ dependencies {
                         "org.springframework.security:spring-security-test:$springSecurityframeworkVersion"
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:2.0.0'
+    }
+}
+
 /* Change context path (base url). Otherwise defaults to name of project */
-jettyRunWar {
+gretty {
     contextPath = 'springapp'
-    stopPort = 8090
-    stopKey = 'foo'
-}
-
-jettyRun {
-    contextPath = 'springapp'
-    stopPort = 8090
-    stopKey = 'foo'
-}
-
-jettyStop {
-    stopPort = 8090
-    stopKey = 'foo'
+    httpPort = 8090
+    servletContainer = 'jetty9'
 }
