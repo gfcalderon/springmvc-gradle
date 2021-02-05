@@ -2,7 +2,7 @@ apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -27,7 +27,7 @@ dependencies {
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
